@@ -24,9 +24,9 @@ fun MainScreen(navController: NavHostController) {
             onClick = { navController.navigate("number_guessing_game_screen") },
             content = { Text("Number Guessing Game") }
         )
-        /*Button(
+        Button(
             onClick = { navController.navigate("quiz_game_screen") },
             content = { Text("Quiz Game") }
-        )*/
+        )
     }
 }
