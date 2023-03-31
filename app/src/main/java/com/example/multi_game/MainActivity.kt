@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.multi_game.ui.theme.MultiGameTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,12 +20,15 @@ import com.example.multi_game.ui.MainScreen
 import com.example.multi_game.ui.numberguessing.NumberGuessingGameScreen
 import com.example.multi_game.ui.quizgame.GameViewModel
 import com.example.multi_game.ui.quizgame.QuizScreen
+import com.example.multi_game.ui.tictactoe.TicTacScreen
+import com.example.multi_game.ui.tictactoe.TicViewModel
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val gameViewModel: GameViewModel by viewModels()
+        val viewModel: TicViewModel by viewModels()
         setContent {
             val navController = rememberNavController()
             MultiGameTheme {
@@ -49,6 +53,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("number_guessing_game_screen") {
                             NumberGuessingGameScreen(navController)
+                        }
+                        composable("tictactoe_game_screen") {
+                            TicTacScreen(navController, viewModel = viewModel)
                         }
                     }
                 }

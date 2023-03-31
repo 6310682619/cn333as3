@@ -30,11 +30,6 @@ class QuizData {
             choices = listOf("Asia", "Africa", "North America", "Europe")
         ),
         Question(
-            question = "Which country is known for producing the most coffee in the world?",
-            answer = "Brazil",
-            choices = listOf("Brazil", "Mexico", "Ethiopia", "Colombia")
-        ),
-        Question(
             question = "What is the smallest country in the world by land area?",
             answer = "Monaco",
             choices = listOf("Monaco", "San Marino", "Vatican City", "Liechtenstein")
@@ -43,11 +38,6 @@ class QuizData {
             question = "Who is the creator of the Harry Potter series?",
             answer = "J.K. Rowling",
             choices = listOf("J.K. Rowling", "Stephenie Meyer", "Suzanne Collins", "George R.R. Martin")
-        ),
-        Question(
-            question = "Which planet in our solar system has the most moons?",
-            answer = "Jupiter",
-            choices = listOf("Jupiter", "Saturn", "Uranus", "Neptune")
         ),
         Question(
             question = "Which river runs through Egypt?",
@@ -63,11 +53,6 @@ class QuizData {
             question = "Who plays the role of Loki in the Marvel Cinematic Universe?",
             answer = "Tom Hiddleston",
             choices = listOf("Tom Hardy", "Tom Hiddleston", "Chris Hemsworth", "Robert Downey Jr.")
-        ),
-        Question(
-            question = "In which year did Christopher Columbus first arrive in the Americas?",
-            answer = "1492",
-            choices = listOf("1492", "1592", "1692", "1792")
         ),
         Question(
             question = "What is the national animal of Thailand?",

@@ -42,3 +42,19 @@ fun MultiGameTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composa
         content = content
     )
 }
+
+@Composable
+fun QuizGameTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+    val colors = if (darkTheme) {
+        DarkColorPalette
+    } else {
+        LightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        typography = Typography,
+        shapes = Shapes,
+        content = content
+    )
+}

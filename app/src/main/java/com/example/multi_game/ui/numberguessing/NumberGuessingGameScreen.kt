@@ -1,23 +1,30 @@
 package com.example.multi_game.ui.numberguessing
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.runtime.R
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.multi_game.ui.theme.RedVelvet
 
 var numTries : Int = 0
 private fun guessNumber(input: Int, random: Int): String {
@@ -50,6 +57,15 @@ fun NumberGuessingGameScreen(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(18.dp)
     ) {
+        Text(
+            text = "Number Guessing Game",
+            fontSize = 50.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.SansSerif,
+            fontStyle = FontStyle.Italic,
+            color = RedVelvet,
+            textAlign = TextAlign.Center
+        )
         Spacer(Modifier.height(16.dp))
         Text(
             text = "Try to guess the number from 1 - 1,000!",
@@ -70,6 +86,12 @@ fun NumberGuessingGameScreen(navController: NavHostController) {
         Spacer(Modifier.height(16.dp))
         Button(
             modifier = Modifier.align(Alignment.CenterHorizontally),
+            shape = RoundedCornerShape(5.dp),
+            elevation = ButtonDefaults.elevation(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = RedVelvet,
+                contentColor = Color.White
+            ),
             onClick = {
                 if (input != null) {
                     hint = guessNumber(input, random)
@@ -81,6 +103,12 @@ fun NumberGuessingGameScreen(navController: NavHostController) {
         }
         Button(
             modifier = Modifier.align(Alignment.CenterHorizontally),
+            shape = RoundedCornerShape(5.dp),
+            elevation = ButtonDefaults.elevation(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = RedVelvet,
+                contentColor = Color.White
+            ),
             onClick = {
                 random = (1..1000).random()
                 getNumber = ""
@@ -92,8 +120,15 @@ fun NumberGuessingGameScreen(navController: NavHostController) {
                 fontSize = 24.sp)
         }
         Button(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
             onClick = { navController.navigate("main_screen") },
-            content = { Text("Home") }
+            shape = RoundedCornerShape(5.dp),
+            elevation = ButtonDefaults.elevation(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = RedVelvet,
+                contentColor = Color.White
+            ),
+            content = { Text("Home",fontSize = 24.sp) }
         )
     }
 }

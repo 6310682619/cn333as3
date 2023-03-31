@@ -30,7 +30,7 @@ class GameViewModel : ViewModel() {
 
         quizNumber++
 
-        if (quizNumber < 11) {
+        if (quizNumber < questions.size) {
             _uiState.value = GameUiState(
                 currentQuestion = questions[quizNumber],
                 choices = questions[quizNumber].choices.shuffled(),

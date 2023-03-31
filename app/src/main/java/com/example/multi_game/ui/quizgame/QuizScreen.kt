@@ -3,6 +3,7 @@ package com.example.multi_game.ui.quizgame
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -11,9 +12,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.multi_game.ui.theme.RedVelvet
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -23,18 +29,13 @@ fun QuizScreen(navController: NavHostController, gameViewModel: GameViewModel, o
     val uiState by gameViewModel.uiState.collectAsState()
 
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Quiz App") }
-            )
-        },
         content = {
             Box(
                 modifier = Modifier.fillMaxSize().padding(16.dp),
 
                 ) {
                 when (uiState.quizNumber) {
-                    10 -> {
+                    11 -> {
                         SummaryScreen(
                             navController = navController,
                             score = uiState.score,
@@ -66,8 +67,18 @@ fun QuestionScreen(question: Question, choices: List<String>, score: Int, quizNu
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
+        Text(
+            text = "Quiz Game",
+            fontSize = 50.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.SansSerif,
+            fontStyle = FontStyle.Italic,
+            color = RedVelvet,
+            textAlign = TextAlign.Center
+        )
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -92,10 +103,13 @@ fun QuestionScreen(question: Question, choices: List<String>, score: Int, quizNu
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 8.dp),
-
-
                 onClick = { SelectedAnswer(choice) },
-
+                shape = RoundedCornerShape(5.dp),
+                elevation = ButtonDefaults.elevation(5.dp),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = RedVelvet,
+                    contentColor = Color.White
+                )
                 ) {
                 Text(text = choice,
                     fontSize = 18.sp)
@@ -110,9 +124,18 @@ fun SummaryScreen(navController: NavHostController, score: Int, onPlayAgain: () 
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text(
+            text = "Quiz Game",
+            fontSize = 50.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.SansSerif,
+            fontStyle = FontStyle.Italic,
+            color = RedVelvet,
+            textAlign = TextAlign.Center,
+        )
         Text(
             text = "Your score is $score out of 10",
             fontSize = 20.sp,
@@ -123,7 +146,13 @@ fun SummaryScreen(navController: NavHostController, score: Int, onPlayAgain: () 
 
         Button(
             onClick = onPlayAgain,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(5.dp),
+            elevation = ButtonDefaults.elevation(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = RedVelvet,
+                contentColor = Color.White
+            ),
         ) {
             Text(text = "Play Again",
                 fontSize = 16.sp)
@@ -132,15 +161,28 @@ fun SummaryScreen(navController: NavHostController, score: Int, onPlayAgain: () 
         Spacer(modifier = Modifier.height(8.dp))
         Button(
             onClick = onExit,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(5.dp),
+            elevation = ButtonDefaults.elevation(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = RedVelvet,
+                contentColor = Color.White
+            ),
         ) {
             Text(text = "Exit",
                 fontSize = 16.sp)
         }
         Spacer(modifier = Modifier.height(8.dp))
         Button(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
             onClick = { navController.navigate("main_screen") },
-            content = { Text("Home", fontSize = 16.sp) }
+            shape = RoundedCornerShape(5.dp),
+            elevation = ButtonDefaults.elevation(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = RedVelvet,
+                contentColor = Color.White
+            ),
+            content = { Text("Home",fontSize = 24.sp) }
         )
     }
 }
