@@ -45,6 +45,7 @@ fun QuizScreen(navController: NavHostController, gameViewModel: GameViewModel, o
                     }
                     else -> {
                         QuestionScreen(
+                            navController = navController,
                             question = uiState.currentQuestion,
                             choices = uiState.choices,
                             score = uiState.score,
@@ -60,7 +61,7 @@ fun QuizScreen(navController: NavHostController, gameViewModel: GameViewModel, o
 }
 
 @Composable
-fun QuestionScreen(question: Question, choices: List<String>, score: Int, quizNum: Int, answer: String, SelectedAnswer: (String) -> Unit) {
+fun QuestionScreen(navController: NavHostController, question: Question, choices: List<String>, score: Int, quizNum: Int, answer: String, SelectedAnswer: (String) -> Unit) {
 
     Column(
         modifier = Modifier.padding(16.dp)
@@ -114,6 +115,19 @@ fun QuestionScreen(question: Question, choices: List<String>, score: Int, quizNu
                 Text(text = choice,
                     fontSize = 18.sp)
             }
+        }
+        Spacer(modifier = Modifier.height(100.dp))
+        Button(
+            modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth(),
+            onClick = { navController.navigate("main_screen") },
+            shape = RoundedCornerShape(5.dp),
+            elevation = ButtonDefaults.elevation(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = RedVelvet,
+                contentColor = Color.White
+            )
+        ){
+            Text("Home",fontSize = 22.sp)
         }
     }
 }
