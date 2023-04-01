@@ -155,7 +155,7 @@ fun TicTacScreen(
             ) {
                 Text(
                     text = "Play Again",
-                    fontSize = 16.sp
+                    fontSize = 20.sp
                 )
             }
 
@@ -190,13 +190,3 @@ fun DrawVictoryLine(
         VictoryType.NONE -> {}
     }
 }
-
-/*
-@Preview(showBackground = true)
-@Composable
-fun Prev() {
-    TicTacScreen(
-        navController = navController,
-        viewModel = TicViewModel()
-    )
-}*/

@@ -84,43 +84,47 @@ fun NumberGuessingGameScreen(navController: NavHostController) {
             textAlign = TextAlign.Center
         )
         Spacer(Modifier.height(16.dp))
-        Button(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            shape = RoundedCornerShape(5.dp),
-            elevation = ButtonDefaults.elevation(5.dp),
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = RedVelvet,
-                contentColor = Color.White
-            ),
-            onClick = {
-                if (input != null) {
-                    hint = guessNumber(input, random)
-                }
-            }) {
-            Text(
-                text = "Enter",
-                fontSize = 24.sp)
+        Row() {
+            Button(
+                shape = RoundedCornerShape(5.dp),
+                elevation = ButtonDefaults.elevation(5.dp),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = RedVelvet,
+                    contentColor = Color.White
+                ),
+                onClick = {
+                    if (input != null) {
+                        hint = guessNumber(input, random)
+                    }
+                }) {
+                Text(
+                    text = "Enter",
+                    fontSize = 24.sp)
+            }
+            Spacer(Modifier.width(20.dp))
+            Button(
+                shape = RoundedCornerShape(5.dp),
+                elevation = ButtonDefaults.elevation(5.dp),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = RedVelvet,
+                    contentColor = Color.White
+                ),
+                onClick = {
+                    random = (1..1000).random()
+                    getNumber = ""
+                    numTries = 0
+                    hint = ""
+                }) {
+                Text(
+                    text = "Play Again",
+                    fontSize = 24.sp)
+            }
         }
+
         Button(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            shape = RoundedCornerShape(5.dp),
-            elevation = ButtonDefaults.elevation(5.dp),
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = RedVelvet,
-                contentColor = Color.White
-            ),
-            onClick = {
-                random = (1..1000).random()
-                getNumber = ""
-                numTries = 0
-                hint = ""
-            }) {
-            Text(
-                text = "Play Again",
-                fontSize = 24.sp)
-        }
-        Button(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .fillMaxWidth(),
             onClick = { navController.navigate("main_screen") },
             shape = RoundedCornerShape(5.dp),
             elevation = ButtonDefaults.elevation(5.dp),

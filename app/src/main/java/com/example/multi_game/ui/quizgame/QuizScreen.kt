@@ -138,7 +138,7 @@ fun SummaryScreen(navController: NavHostController, score: Int, onPlayAgain: () 
         )
         Text(
             text = "Your score is $score out of 10",
-            fontSize = 20.sp,
+            fontSize = 22.sp,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
 
@@ -155,7 +155,7 @@ fun SummaryScreen(navController: NavHostController, score: Int, onPlayAgain: () 
             ),
         ) {
             Text(text = "Play Again",
-                fontSize = 16.sp)
+                fontSize = 22.sp)
         }
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -170,19 +170,20 @@ fun SummaryScreen(navController: NavHostController, score: Int, onPlayAgain: () 
             ),
         ) {
             Text(text = "Exit",
-                fontSize = 16.sp)
+                fontSize = 22.sp)
         }
         Spacer(modifier = Modifier.height(8.dp))
         Button(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth(),
             onClick = { navController.navigate("main_screen") },
             shape = RoundedCornerShape(5.dp),
             elevation = ButtonDefaults.elevation(5.dp),
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = RedVelvet,
                 contentColor = Color.White
-            ),
-            content = { Text("Home",fontSize = 24.sp) }
-        )
+            )
+        ){
+            Text("Home",fontSize = 22.sp)
+        }
     }
 }
