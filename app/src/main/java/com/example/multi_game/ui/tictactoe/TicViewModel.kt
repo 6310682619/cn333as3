@@ -37,7 +37,7 @@ class TicViewModel : ViewModel() {
             boardItems[i] = BoardCellValue.NONE
         }
         state = state.copy(
-            hintText = "Player 'O' turn",
+            hintText = "Player '1' turn",
             currentTurn = BoardCellValue.CIRLCE,
             victoryType = VictoryType.NONE,
             hasWon = false
@@ -52,7 +52,7 @@ class TicViewModel : ViewModel() {
             boardItems[cellNo] = BoardCellValue.CIRLCE
             if (checkForVictory(BoardCellValue.CIRLCE)) {
                 state = state.copy(
-                    hintText = "Player 'O' Won",
+                    hintText = "Player '1' Won",
                     playerCircleCount = state.playerCircleCount + 1,
                     currentTurn = BoardCellValue.NONE,
                     hasWon = true
@@ -64,7 +64,7 @@ class TicViewModel : ViewModel() {
                 )
             } else {
                 state = state.copy(
-                    hintText = "Player 'X' turn",
+                    hintText = "Player '2' turn",
                     currentTurn = BoardCellValue.CROSS
                 )
             }
@@ -72,7 +72,7 @@ class TicViewModel : ViewModel() {
             boardItems[cellNo] = BoardCellValue.CROSS
             if (checkForVictory(BoardCellValue.CROSS)) {
                 state = state.copy(
-                    hintText = "Player 'X' Won",
+                    hintText = "Player '2' Won",
                     playerCrossCount = state.playerCrossCount + 1,
                     currentTurn = BoardCellValue.NONE,
                     hasWon = true
@@ -84,7 +84,7 @@ class TicViewModel : ViewModel() {
                 )
             } else {
                 state = state.copy(
-                    hintText = "Player 'O' turn",
+                    hintText = "Player '1' turn",
                     currentTurn = BoardCellValue.CIRLCE
                 )
             }

@@ -1,16 +1,23 @@
 package com.example.multi_game.ui.tictactoe
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import com.example.multi_game.R
 import com.example.multi_game.ui.theme.*
 
 @Composable
@@ -53,6 +60,28 @@ fun BoardBase() {
 
 @Composable
 fun Circle() {
+    Image(
+        modifier = Modifier
+            .size(80.dp)
+            .padding(5.dp),
+        painter = painterResource(R.drawable.dog),
+        contentDescription = "Circle"
+    )
+}
+
+@Composable
+fun Cross() {
+    Image(
+        modifier = Modifier
+            .size(80.dp)
+            .padding(5.dp),
+        painter = painterResource(R.drawable.wolf),
+        contentDescription = "Cross"
+    )
+}
+/*
+@Composable
+fun Circle() {
     Canvas(
         modifier = Modifier
             .size(55.dp)
@@ -87,7 +116,7 @@ fun Cross() {
             end = Offset(x = size.width, y = 0f)
         )
     }
-}
+}*/
 
 @Composable
 fun WinVerticalLine1() {

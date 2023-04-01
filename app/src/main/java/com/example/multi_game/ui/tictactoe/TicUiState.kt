@@ -4,7 +4,7 @@ data class TicState(
     val playerCircleCount: Int = 0,
     val playerCrossCount: Int = 0,
     val drawCount: Int = 0,
-    val hintText: String = "Player 'O' turn",
+    val hintText: String = "Player '1' turn",
     val currentTurn: BoardCellValue = BoardCellValue.CIRLCE,
     val victoryType: VictoryType = VictoryType.NONE,
     val hasWon: Boolean = false

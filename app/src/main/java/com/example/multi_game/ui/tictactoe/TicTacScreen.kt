@@ -53,9 +53,9 @@ fun TicTacScreen(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "Player 'O' : ${state.playerCircleCount}", fontSize = 16.sp , fontFamily = FontFamily.SansSerif )
+            Text(text = "Player '1' : ${state.playerCircleCount}", fontSize = 16.sp , fontFamily = FontFamily.SansSerif )
             Text(text = "Draw : ${state.drawCount}", fontSize = 16.sp, fontFamily = FontFamily.SansSerif)
-            Text(text = "Player 'X' : ${state.playerCrossCount}", fontSize = 16.sp, fontFamily = FontFamily.SansSerif)
+            Text(text = "Player '2' : ${state.playerCrossCount}", fontSize = 16.sp, fontFamily = FontFamily.SansSerif)
         }
         Text(
             text = "Tic Tac Toe",
@@ -137,8 +137,9 @@ fun TicTacScreen(
         ) {
             Text(
                 text = state.hintText,
-                fontSize = 26.sp,
-                fontStyle = FontStyle.Normal
+                fontSize = 22.sp,
+                fontStyle = FontStyle.Normal,
+                fontWeight = FontWeight.Bold
             )
             Button(
                 onClick = {
@@ -161,7 +162,7 @@ fun TicTacScreen(
 
         }
         Button(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth(),
             onClick = { navController.navigate("main_screen") },
             shape = RoundedCornerShape(5.dp),
             elevation = ButtonDefaults.elevation(5.dp),
