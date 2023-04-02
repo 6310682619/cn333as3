@@ -103,7 +103,7 @@ fun TicTacScreen(
                         ) {
                             AnimatedVisibility(
                                 visible = viewModel.boardItems[cellNo] != BoardCellValue.NONE,
-                                enter = scaleIn(tween(1000))
+                                enter = scaleIn(tween(900))
                             ) {
                                 if (boardCellValue == BoardCellValue.CIRLCE) {
                                     Circle()
@@ -163,7 +163,8 @@ fun TicTacScreen(
         }
         Button(
             modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth(),
-            onClick = { navController.navigate("main_screen") },
+            onClick = { viewModel.resetGame()
+                navController.navigate("main_screen") },
             shape = RoundedCornerShape(5.dp),
             elevation = ButtonDefaults.elevation(5.dp),
             colors = ButtonDefaults.buttonColors(

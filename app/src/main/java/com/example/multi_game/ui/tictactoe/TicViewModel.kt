@@ -44,6 +44,21 @@ class TicViewModel : ViewModel() {
         )
     }
 
+    fun resetGame() {
+        boardItems.forEach { (i, _) ->
+            boardItems[i] = BoardCellValue.NONE
+        }
+        state = state.copy(
+            playerCircleCount = 0,
+            playerCrossCount = 0,
+            drawCount = 0,
+            hintText = "Player '1' turn",
+            currentTurn = BoardCellValue.CIRLCE,
+            victoryType = VictoryType.NONE,
+            hasWon = false
+        )
+    }
+
     private fun addValueToBoard(cellNo: Int) {
         if (boardItems[cellNo] != BoardCellValue.NONE) {
             return

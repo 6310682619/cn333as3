@@ -79,44 +79,6 @@ fun Cross() {
         contentDescription = "Cross"
     )
 }
-/*
-@Composable
-fun Circle() {
-    Canvas(
-        modifier = Modifier
-            .size(55.dp)
-            .padding(5.dp)
-    ) {
-        drawCircle(
-            color = kp2,
-            style = Stroke(width = 20f)
-        )
-    }
-}
-
-@Composable
-fun Cross() {
-    Canvas(
-        modifier = Modifier
-            .size(60.dp)
-            .padding(5.dp)
-    ) {
-        drawLine(
-            color = kp1,
-            strokeWidth = 20f,
-            cap = StrokeCap.Round,
-            start = Offset(x = 0f, y = 0f),
-            end = Offset(x = size.width, y = size.height)
-        )
-        drawLine(
-            color = kp1,
-            strokeWidth = 20f,
-            cap = StrokeCap.Round,
-            start = Offset(x = 0f, y = size.height),
-            end = Offset(x = size.width, y = 0f)
-        )
-    }
-}*/
 
 @Composable
 fun WinVerticalLine1() {
@@ -224,7 +186,7 @@ fun WinDiagonalLine2() {
 
 @Preview(showBackground = true)
 @Composable
-fun Prevs() {
+fun Win() {
     WinVerticalLine1()
     WinVerticalLine2()
     WinVerticalLine3()
