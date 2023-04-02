@@ -8,9 +8,9 @@
 ### Requirements
 
 1. โปรแกรมจะเริ่มแสดงหน้าแรกด้วยเกม 3 เกม ได้แก่
-  - Number Guessing Game
-  - Quiz Game
-  - Tic-Tac-Toe Game
+    - Number Guessing Game
+    - Quiz Game
+    - Tic-Tac-Toe Game
 2. เมื่อกดเลือกเกมโปรแกรมจะเปลี่ยนไปยังหน้าเกมนั้น และมีปุ่มที่สามารถย้อนกลับมายังหน้าแรกได้
 
 ### Link Demo
